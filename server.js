@@ -12,24 +12,24 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());
 
-app.post('/api', function (req,res) {
+app.post('/api', async(req,res) => {
     console.log('Called');
-    res.send({result: 'Hello'})
-})
+    const result = await dbOperation.getOrders(req.body.name);
+    res.send(result.recordset)
+});
 
-app.post('/hello', function (req,res) {
+app.post('/hello', async (req,res) => {
+    await dbOperation.createOrder(req.body);
+    const result = await dbOperation.getOrders(req.body.CustomerOrderId);
     console.log('Called quit');
-    res.send({result: 'Goodbye'})
+    res.send(result.recordset)
 })
 
 let Order28 = new Order(48, 1, 4, 9);
 
-/*console.log(Order28);
-dbOperation.getOrders().then(res => {
-    console.log(res.recordset);
-});
+//console.log(Order28);
 
-dbOperation.createOrder(Order28);*/
+
 
 
 app.listen(API_PORT, () => console.log(`Listening on port ${API_PORT}`));

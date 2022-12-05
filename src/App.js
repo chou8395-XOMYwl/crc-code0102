@@ -26,16 +26,34 @@ function App() {
   const fetchData = async () => {
     console.log(order);
       const newData = await fetch('/api', {
-      method: 'GET',
+      method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
         'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: order.CustomerOrderId
+      })
+    })
+    .then(res => res.json());
+    console.log(newData);
+    setReturnedData(newData[0]) 
+  }
 
-      }
+  const createOrder = async () => {
+      const newData = await fetch('/hello', {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        ...order
+      })
     })
     .then( res => res.json());
     console.log(newData);
-    setReturnedData(newData.result) 
+    setReturnedData(newData[0]) 
   }
 
 
@@ -70,7 +88,7 @@ function App() {
         >
       </input>
       <button onClick={() => fetchData()}>Click</button>
-      <button onClick={() => fetchData()}>Create</button>
+      <button onClick={() => createOrder()}>Create</button>
       <p>CustomerOrderId: {returnedData.CustomerOrderId}</p>
       <p>ProductId: {returnedData.ProductId}</p>
       <p>Quantity: {returnedData.Quantity}</p>

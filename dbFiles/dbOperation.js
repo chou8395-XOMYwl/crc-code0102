@@ -1,10 +1,10 @@
 const config = require ('./dbConfig');
 const sql = require('mssql');
 
-const getOrders = async() => {
+const getOrders = async(customerorderid) => {
     try {
         let pool = await sql.connect(config);
-        let orders = pool.request().query("SELECT * FROM OrderProduct")
+        let orders = await pool.request().query(`SELECT * FROM OrderProduct WHERE CustomerOrderId = ${customerorderid}`)
     console.log(orders);
     return orders;
 }
@@ -16,7 +16,7 @@ const getOrders = async() => {
 const createOrder = async(Order) => {
     try {
         let pool = await sql.connect(config);
-        let orders = pool.request()
+        let orders = await pool.request()
         .query(`INSERT INTO OrderProduct VALUES
         (${Order.CustomerOrderId}, ${Order.ProductId}, ${Order.Quantity}, ${Order.Rating})`)
     return orders;
