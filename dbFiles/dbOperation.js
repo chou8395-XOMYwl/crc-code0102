@@ -18,7 +18,7 @@ const createOrder = async(Order) => {
         let pool = await sql.connect(config);
         let orders = pool.request()
         .query(`INSERT INTO OrderProduct VALUES
-        (${Order.Id}, ${Order.CustomerOrderId}, ${Order.ProductId}, ${Order.Quantity})`)
+        (${Order.CustomerOrderId}, ${Order.ProductId}, ${Order.Quantity}, ${Order.Rating})`)
     return orders;
 }
     catch(error) {

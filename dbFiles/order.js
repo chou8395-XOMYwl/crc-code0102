@@ -1,9 +1,10 @@
 class Order {
-    constructor(Id, CustomerOrderId, ProductId, Quantity){
-    this.Id = Id;
+    constructor(CustomerOrderId, ProductId, Quantity, Rating){
+    //this.Id = Id;
     this.CustomerOrderId = CustomerOrderId;
     this.ProductId = ProductId;
     this.Quantity = Quantity;
+    this.Rating = Rating;
 }
 }
 

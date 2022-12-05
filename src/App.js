@@ -22,8 +22,35 @@ function App() {
 
   return (
     <div className="App">
+      <input 
+        type="number" 
+        name="CustomerOrderId" 
+        placeholder="CustomerOrderId" 
+        >
+      </input>
+      <input 
+        type="number" 
+        name="ProductId" 
+        placeholder="ProductId" 
+        >
+      </input>
+      <input 
+        type="number" 
+        name="Quantity" 
+        placeholder="Quantity" 
+        >
+      </input>
+      <input 
+        type="number" 
+        name="Rating" 
+        placeholder="Product Rating" 
+        >
+      </input>
       <button onClick={() => fetchData()}>Click </button>
-      {returnedData}
+      <p>CustomerOrderId: {returnedData.CustomerOrderId}</p>
+      <p>ProductId: {returnedData.ProductId}</p>
+      <p>Quantity: {returnedData.Quantity}</p>
+      <p>Rating: {returnedData.Rating}</p>
     </div>
   );
 }
