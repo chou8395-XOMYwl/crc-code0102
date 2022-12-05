@@ -4,11 +4,12 @@ import React, {useState} from 'react';
 
 function App() {
   const [returnedData, setReturnedData] = useState(['Hello there']);
-  const getData = async (url) => {
-    const newData = await fetch(url, {
+
+  const fetchData = async () => {
+    const newData = await fetch('/hello', {
       method: 'GET',
       headers: { 
-        'content-type': 'application/json',
+        'Content-Type': 'application/json',
         'Accept': 'application/json'
 
       }
@@ -21,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={() => getData('/quit')}>Click </button>
+      <button onClick={() => fetchData()}>Click </button>
       {returnedData}
     </div>
   );
