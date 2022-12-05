@@ -120,8 +120,8 @@ function App() {
         onChange={setInput} 
         >
       </input>*/}
-       <button onClick={() => createOrder()}>Enter Order Details & Create New Order</button>
-      <button onClick={() => fetchData()}>Enter Order Number & Click To see Order Details</button>
+       <button onClick={() => createOrder()}>Enter Order Details & Click To Create New Order</button>
+      <button onClick={() => fetchData()}>Enter CustomerOrderId & Click To See Individual Order Details</button>
       <div className='container'>
       <h3>Individual Order Details</h3>
       <p>CustomerOrderId: {returnedData.CustomerOrderId}</p>
