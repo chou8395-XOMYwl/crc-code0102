@@ -13,11 +13,12 @@ const getOrders = async() => {
     }
 }
 
-const createOrder = async() => {
+const createOrder = async(Order) => {
     try {
         let pool = await sql.connect(config);
-        let orders = pool.request().query("SELECT * FROM OrderProduct")
-    console.log(orders);
+        let orders = pool.request()
+        .query(`INSERT INTO OrderProduct VALUES
+        (${Order.Id}, ${Order.CustomerOrderId}, ${Order.ProductId}, ${Order.Quantity})`)
     return orders;
 }
     catch(error) {
@@ -27,5 +28,6 @@ const createOrder = async() => {
 
 
 module.exports = {
+    createOrder,
     getOrders
 }
