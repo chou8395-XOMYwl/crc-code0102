@@ -13,7 +13,7 @@ app.use(express.urlencoded());
 app.use(cors());
 
 app.post('/api', async(req,res) => {
-    console.log('Called');
+    //console.log('Called');
     const result = await dbOperation.getOrders(req.body.name);
     res.send(result.recordset)
 });
@@ -21,9 +21,15 @@ app.post('/api', async(req,res) => {
 app.post('/hello', async (req,res) => {
     await dbOperation.createOrder(req.body);
     const result = await dbOperation.getOrders(req.body.CustomerOrderId);
-    console.log('Called quit');
+    //console.log('Called quit');
     res.send(result.recordset)
 })
+
+app.get('/getAllOrders', async(req,res) => {
+    //console.log('Called');
+    const result = await dbOperation.getAllOrders(req);
+    res.send(result.recordset)
+});
 
 let Order28 = new Order(48, 1, 4, 9);
 

@@ -5,11 +5,11 @@ const getOrders = async(customerorderid) => {
     try {
         let pool = await sql.connect(config);
         let orders = await pool.request().query(`SELECT * FROM OrderProduct WHERE CustomerOrderId = ${customerorderid}`)
-    console.log(orders);
+    //console.log(orders);
     return orders;
 }
     catch(error) {
-        console.log(error);
+       // console.log(error);
     }
 }
 
@@ -22,12 +22,24 @@ const createOrder = async(Order) => {
     return orders;
 }
     catch(error) {
-        console.log(error);
+        //console.log(error);
     }
 }
 
+const getAllOrders = async() => {
+    try {
+        let pool = await sql.connect(config);
+        let orders = await pool.request().query(`SELECT * FROM OrderProduct`)
+   // console.log(orders);
+    return orders;
+}
+    catch(error) {
+       // console.log(error);
+    }
+}
 
 module.exports = {
     createOrder,
-    getOrders
+    getOrders,
+    getAllOrders
 }

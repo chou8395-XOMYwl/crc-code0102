@@ -1,6 +1,6 @@
 import './App.css';
-
-import React, {useState} from 'react';
+import React, { useEffect, useState } from "react";
+import TableWithAPI from './components/TableWithApi';
 
 function App() {
   const [returnedData, setReturnedData] = useState(['Hello there']);
@@ -8,7 +8,7 @@ function App() {
 
   const setInput = (e) => {
     const {name, value} = e.target;
-    console.log(value);
+   // console.log(value);
     if (name === 'CustomerOrderId' || name === 'ProductId' || name === 'Quantity' || name === 'Rating') {
       setOrder(prevState => ({
         ...prevState,
@@ -24,7 +24,7 @@ function App() {
   }
 
   const fetchData = async () => {
-    console.log(order);
+    //console.log(order);
       const newData = await fetch('/api', {
       method: 'POST',
       headers: { 
@@ -36,7 +36,7 @@ function App() {
       })
     })
     .then(res => res.json());
-    console.log(newData);
+   // console.log(newData);
     setReturnedData(newData[0]) 
   }
 
@@ -52,10 +52,42 @@ function App() {
       })
     })
     .then( res => res.json());
-    console.log(newData);
+    //console.log(newData);
     setReturnedData(newData[0]) 
   }
 
+  const getAllOrders = async () => {
+    const newData = await fetch('/getAllOrders', {
+    method: 'GET',
+    headers: { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+  })
+  .then( res => res.json());
+  //console.log(newData);
+  //setReturnedData(newData[0]) 
+}
+/*const data = React.useMemo(
+    () => [
+      {
+        company: "Alfred",
+        contact: "Maria Anders",
+        country: "Germany"
+      },
+      {
+        company: "Centro comercial Moctezuma",
+        contact: "Francisco Chang",
+        country: "Mexico"
+      },
+      {
+        company: "Ernst Handel",
+        contact: "Roland Mendel	",
+        country: "Austria"
+      }
+    ],
+    []
+  );*/
 
   return (
     <div className="App">
@@ -90,12 +122,15 @@ function App() {
       </input>*/}
        <button onClick={() => createOrder()}>Enter Order Details & Create New Order</button>
       <button onClick={() => fetchData()}>Enter Order Number & Click To see Order Details</button>
+      <button onClick={() => getAllOrders()}>Get orders</button>
       <div className='container'>
       <h3>Individual Order Details</h3>
-      <p>CustomerOrderId: {returnedData.CustomerOrderId}</p>
+      {/*<p>CustomerOrderId: {returnedData.CustomerOrderId}</p>
       <p>ProductId: {returnedData.ProductId}</p>
-      <p>Quantity: {returnedData.Quantity}</p>
+    <p>Quantity: {returnedData.Quantity}</p>*/}
       </div>
+
+      <TableWithAPI />
     </div>
   );
 }
