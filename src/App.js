@@ -59,40 +59,43 @@ function App() {
 
   return (
     <div className="App">
+      <h2>Enter Order Info To Place New Order Or To Retrieve Order Information </h2>
       <input 
         type="number" 
         name="CustomerOrderId" 
-        placeholder="CustomerOrderId" 
+        placeholder="Enter CustomerOrderId" 
         onChange={setInput}
         >
       </input>
       <input 
         type="number" 
         name="ProductId" 
-        placeholder="ProductId" 
+        placeholder="Enter ProductId" 
         onChange={setInput}
         >
       </input>
       <input 
         type="number" 
         name="Quantity" 
-        placeholder="Quantity" 
+        placeholder="Enter Quantity" 
         onChange={setInput}
         >
       </input>
-      <input 
+      {/*<input 
         type="number" 
         name="Rating" 
         placeholder="Product Rating"
         onChange={setInput} 
         >
-      </input>
-      <button onClick={() => fetchData()}>Click</button>
-      <button onClick={() => createOrder()}>Create</button>
+      </input>*/}
+       <button onClick={() => createOrder()}>Enter Order Details & Create New Order</button>
+      <button onClick={() => fetchData()}>Enter Order Number & Click To see Order Details</button>
+      <div className='container'>
+      <h3>Individual Order Details</h3>
       <p>CustomerOrderId: {returnedData.CustomerOrderId}</p>
       <p>ProductId: {returnedData.ProductId}</p>
       <p>Quantity: {returnedData.Quantity}</p>
-      <p>Rating: {returnedData.Rating}</p>
+      </div>
     </div>
   );
 }
