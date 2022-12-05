@@ -20,5 +20,9 @@ In the termianl install dependences
     
 In dbFiles/db.Config.js 
     - Ensure that user, password, server, and database fields are correct with your local SQL server. Make sure the local SQL port is on the right port by looking for TCP Port in Windows Computer Management --> SQL Server Network Configuration --> Protocols for SQLEXPRESS
-    
+
 To start the app, input 'npm run dev' to start the react app and the backend.
+
+### Video Walkthrough Of Working App
+
+https://drive.google.com/file/d/1-w7pWOzCqVJNldZ6Xk2GIv1NHaERX2pm/view
