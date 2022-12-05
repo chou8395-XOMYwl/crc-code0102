@@ -29,10 +29,6 @@ export default function TableWithAPI() {
         {
           Header: 'Quantity',
           accessor: 'Quantity'
-        },
-        {
-          Header: 'ProductRating',
-          accessor: 'ProductRating'
         }
       ]
     );

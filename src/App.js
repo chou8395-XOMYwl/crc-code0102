@@ -122,14 +122,13 @@ function App() {
       </input>*/}
        <button onClick={() => createOrder()}>Enter Order Details & Create New Order</button>
       <button onClick={() => fetchData()}>Enter Order Number & Click To see Order Details</button>
-      <button onClick={() => getAllOrders()}>Get orders</button>
       <div className='container'>
       <h3>Individual Order Details</h3>
-      {/*<p>CustomerOrderId: {returnedData.CustomerOrderId}</p>
+      <p>CustomerOrderId: {returnedData.CustomerOrderId}</p>
       <p>ProductId: {returnedData.ProductId}</p>
-    <p>Quantity: {returnedData.Quantity}</p>*/}
+      <p>Quantity: {returnedData.Quantity}</p>
       </div>
-
+      <h3>View All Orders</h3>
       <TableWithAPI />
     </div>
   );

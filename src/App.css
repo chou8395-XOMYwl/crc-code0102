@@ -1,5 +1,5 @@
 .App {
-  height: 50vh;
+  height: 100vh;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -9,6 +9,8 @@
 h3 {
   width: fit-content;
   margin: 1vh;
+  align-content: center;
+  text-decoration: underline;
 }
 
 p {

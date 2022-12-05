@@ -1,0 +1,16 @@
+div {
+    justify-content: center;
+    align-content: center;
+}
+
+th {
+    padding: 0px 15px 0px 15px;
+}
+
+td {
+    padding: 10px 0px 10px 0px;
+}
+
+button {
+    display: flex;
+}

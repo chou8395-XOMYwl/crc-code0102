@@ -1,4 +1,5 @@
 import React from "react";
+import './Table.css'
 import { useTable, usePagination } from "react-table";
 
 export default function PaginationTable({ columns, data }) {
@@ -17,13 +18,13 @@ export default function PaginationTable({ columns, data }) {
     {
       columns,
       data,
-      initialState: { pageSize: 2 }
+      initialState: { pageSize: 3 }
     },
     usePagination
   );
 
   return (
-    <div>
+    <div >
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
