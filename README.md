@@ -16,7 +16,7 @@ This is a full stack app that lists all orders using a paginated table, creates 
 
 ### Instructions for starting app
 In the termianl install dependences
-    - npm i express, nodemon, cors, React-Table, MSSQL
+    - npm i express, nodemon, cors, React-Table, MSSQL, npm-run-all
     
 In dbFiles/db.Config.js 
     - Ensure that user, password, server, and database fields are correct with your local SQL server. Make sure the local SQL port is on the right port by looking for TCP Port in Windows Computer Management --> SQL Server Network Configuration --> Protocols for SQLEXPRESS
